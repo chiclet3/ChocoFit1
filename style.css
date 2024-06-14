@@ -1,4 +1,4 @@
-8body {
+body {
 
     background:rgb( 0, 0, 0 )
 }
@@ -16,6 +16,10 @@ h2 {
 p {
     text-align: center;
     color:white;
+}
+
+body {
+    background:rgb(0, 0, 0)
 }
 
 p2 {
