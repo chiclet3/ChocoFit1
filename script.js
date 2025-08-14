@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Animação de fade-in para a imagem principal
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(element => {
         element.style.transition = 'opacity 1s ease-in-out, transform 1s ease-in-out';
@@ -17,16 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(element);
     });
 
-    // Animação de todas as letras dos textos com a classe "animated-text"
     const animatedTextElements = document.querySelectorAll('.animated-text');
 
     animatedTextElements.forEach(textElement => {
         const text = textElement.textContent;
-        textElement.innerHTML = ''; // Limpa o texto original
+        textElement.innerHTML = '';
         text.split('').forEach((letter, index) => {
             const span = document.createElement('span');
-            span.textContent = letter === ' ' ? '\u00A0' : letter; // Mantém espaços
-            span.style.animationDelay = `${index * 0.03}s`; // Atraso menor para um efeito mais rápido
+            span.textContent = letter === ' ' ? '\u00A0' : letter;
+            span.style.animationDelay = `${index * 0.03}s`;
             textElement.appendChild(span);
         });
 
