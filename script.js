@@ -17,34 +17,33 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(element);
     });
 
-    // Animação das letras do texto principal
-    const introTextElement = document.querySelector('.intro-text p');
-    const animatedTextContainer = document.querySelector('.animated-text');
+    // Animação de todas as letras dos textos com a classe "animated-text"
+    const animatedTextElements = document.querySelectorAll('.animated-text');
 
-    if (introTextElement && animatedTextContainer) {
-        const text = introTextElement.textContent;
-        animatedTextContainer.innerHTML = ''; // Limpa o texto original
+    animatedTextElements.forEach(textElement => {
+        const text = textElement.textContent;
+        textElement.innerHTML = ''; // Limpa o texto original
         text.split('').forEach((letter, index) => {
             const span = document.createElement('span');
             span.textContent = letter === ' ' ? '\u00A0' : letter; // Mantém espaços
-            span.style.animationDelay = `${index * 0.05}s`;
-            animatedTextContainer.appendChild(span);
+            span.style.animationDelay = `${index * 0.03}s`; // Atraso menor para um efeito mais rápido
+            textElement.appendChild(span);
         });
 
-        const letterSpans = document.querySelectorAll('.animated-text span');
         const observerLetters = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    const letterSpans = textElement.querySelectorAll('span');
                     letterSpans.forEach(span => {
                         span.style.opacity = '1';
                         span.style.transform = 'translateY(0)';
                         span.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
                     });
-                    observerLetters.unobserve(animatedTextContainer);
+                    observerLetters.unobserve(textElement);
                 }
             });
         }, { threshold: 0.5 });
 
-        observerLetters.observe(animatedTextContainer);
-    }
+        observerLetters.observe(textElement);
+    });
 });
