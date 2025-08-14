@@ -1,41 +1,155 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chocofit - O Chocolate com Alma</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+/* Importação da nova fonte 'Dancing Script' */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Gothic+A1:wght@400;700&display=swap');
 
-    <header class="header-container">
-        <h1 class="header-title">CHOCOFIT</h1>
-    </header>
+/* Cores e variáveis temáticas do filme */
+:root {
+    --roxo-escuro: #2c0b3b;
+    --roxo-claro: #4c2c5c;
+    --azul-petroleo: #1e394f;
+    --cinza-claro: #c2c2c2;
+    --cinza-escuro: #4a4a4a;
+    --branco-puro: #ffffff;
+}
 
-    <main class="main-content">
-        <div class="image-container fade-in">
-            <img src="https://images.unsplash.com/photo-1621966055530-58c973523f04?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Barra de chocolate gourmet em uma paisagem fria" class="hero-image">
-        </div>
-        
-        <div class="text-with-background">
-            <div class="text-content">
-                <p class="intro-text animated-text">Descubra o CHOCOFIT: o chocolate que combina a delicadeza de um artista com a intensidade de uma obra-prima. Inspirado no toque singular de Edward, cada pedaço é uma experiência única.</p>
-                <p class="inspiration-text animated-text">Cada barra de CHOCOFIT é uma homenagem ao mundo melancólico e mágico de Edward Mãos de Tesoura. Da arte na embalagem à textura suave, buscamos recriar a beleza peculiar e o romantismo do filme que amamos.</p>
-                <p class="sustainability-text animated-text">Nossos chocolates são feitos com cacau de origem sustentável e certificada, garantindo não só um sabor impecável, mas também o respeito ao meio ambiente e às comunidades locais. Uma escolha consciente e deliciosa.</p>
-            </div>
-            <div class="background-image"></div>
-        </div>
-    </main>
+body {
+    font-family: 'Gothic A1', sans-serif;
+    background-color: var(--roxo-escuro);
+    color: var(--cinza-claro);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-    <footer class="footer-gradient">
-        <p>&copy; 2025 CHOCOFIT. Todos os direitos reservados.</p>
-    </footer>
+/* Estilo do cabeçalho */
+.header-container {
+    text-align: center;
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--roxo-claro);
+    background-color: var(--roxo-escuro);
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.header-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--branco-puro);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    letter-spacing: 5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Conteúdo principal e animações */
+.main-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+.text-with-background {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.text-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.intro-text, .inspiration-text, .sustainability-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--cinza-claro);
+    margin-bottom: 2rem;
+}
+
+.animated-text {
+    display: inline-block;
+}
+
+.animated-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.background-image {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 1000px; /* Altura aumentada para cobrir o novo texto */
+    background-image: url('https://images.unsplash.com/photo-1551024709-24198a22a5c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+/* Estilo do rodapé com degradê */
+.footer-gradient {
+    padding: 2rem;
+    text-align: center;
+    color: var(--cinza-claro);
+    background: linear-gradient(to top, var(--roxo-escuro), var(--azul-petroleo), rgba(0,0,0,0));
+    margin-top: 3rem;
+    position: relative;
+    z-index: 20;
+}
+
+/* Animações de entrada */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnimation 1s forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 3.5rem;
+    }
+    .background-image {
+        height: 700px;
+    }
+}
