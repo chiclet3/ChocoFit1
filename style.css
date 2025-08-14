@@ -53,6 +53,8 @@ body {
     margin: 2rem auto;
     padding: 0 1.5rem;
     flex-grow: 1;
+    position: relative; /* Para posicionar a imagem de fundo */
+    overflow: hidden; /* Para garantir que a imagem de fundo não ultrapasse */
 }
 
 .image-container {
@@ -74,18 +76,42 @@ body {
     transform: scale(1.05);
 }
 
-.text-container {
-    text-align: center;
-    margin-bottom: 3rem;
+.text-with-background {
+    position: relative;
+    padding-bottom: 100px; /* Espaço para a imagem de fundo */
 }
 
 .intro-text {
     font-size: 1.25rem;
     font-style: italic;
     color: var(--cinza-claro);
+    text-align: center;
+    position: relative; /* Garante que o texto esteja na frente da imagem */
+    z-index: 10;
 }
 
-/* Animações de entrada (mantidas) */
+.animated-text p {
+    display: inline-block; /* Para que cada letra possa ser animada */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.background-image {
+    position: absolute;
+    bottom: -50px; /* Começa um pouco abaixo do final do texto */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 500px; /* Altura da imagem */
+    background-image: url('https://images.unsplash.com/photo-1551024709-24198a22a5c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Substitua pela URL da sua imagem */
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0.3; /* Deixa a imagem um pouco transparente */
+    z-index: 1; /* Garante que a imagem esteja atrás do texto */
+    border-radius: 10px;
+}
+
+/* Animação de entrada (mantida para a imagem principal) */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -106,11 +132,16 @@ body {
     color: var(--cinza-claro);
     background: linear-gradient(to top, var(--roxo-escuro), var(--azul-petroleo), rgba(0,0,0,0));
     margin-top: 3rem;
+    position: relative; /* Garante que fique acima da imagem de fundo, se necessário */
+    z-index: 20;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .header-title {
         font-size: 3.5rem;
+    }
+    .background-image {
+        height: 400px;
     }
 }
