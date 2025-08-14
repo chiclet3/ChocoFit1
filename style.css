@@ -12,7 +12,7 @@
 }
 
 body {
-    font-family: 'Gothic A1', sans-serif; /* Fonte secundária para o corpo do texto */
+    font-family: 'Gothic A1', sans-serif;
     background-color: var(--roxo-escuro);
     color: var(--cinza-claro);
     margin: 0;
@@ -26,14 +26,14 @@ body {
 /* Estilo do cabeçalho */
 .header-container {
     text-align: center;
-    padding: 3rem 0; /* Aumenta o espaçamento */
+    padding: 3rem 0;
     border-bottom: 2px solid var(--roxo-claro);
     background-color: var(--roxo-escuro);
 }
 
 .header-title {
-    font-family: 'Dancing Script', cursive; /* A nova fonte estilo pena */
-    font-size: 5rem; /* Título maior */
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
     font-weight: 700;
     color: var(--branco-puro);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -53,8 +53,8 @@ body {
     margin: 2rem auto;
     padding: 0 1.5rem;
     flex-grow: 1;
-    position: relative; /* Para posicionar a imagem de fundo */
-    overflow: hidden; /* Para garantir que a imagem de fundo não ultrapasse */
+    position: relative;
+    overflow: hidden;
 }
 
 .image-container {
@@ -78,40 +78,48 @@ body {
 
 .text-with-background {
     position: relative;
-    padding-bottom: 100px; /* Espaço para a imagem de fundo */
+    padding: 2rem 0; /* Espaçamento interno */
 }
 
-.intro-text {
+.text-content {
+    position: relative;
+    z-index: 10;
+    text-align: center; /* Centraliza todos os textos */
+}
+
+.intro-text, .sustainability-text {
     font-size: 1.25rem;
     font-style: italic;
     color: var(--cinza-claro);
-    text-align: center;
-    position: relative; /* Garante que o texto esteja na frente da imagem */
-    z-index: 10;
+    margin-bottom: 2rem;
 }
 
-.animated-text p {
-    display: inline-block; /* Para que cada letra possa ser animada */
+.animated-text {
+    display: inline-block;
+}
+
+.animated-text span {
+    display: inline-block;
     opacity: 0;
     transform: translateY(20px);
 }
 
 .background-image {
     position: absolute;
-    bottom: -50px; /* Começa um pouco abaixo do final do texto */
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-    height: 500px; /* Altura da imagem */
-    background-image: url('https://images.unsplash.com/photo-1551024709-24198a22a5c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Substitua pela URL da sua imagem */
+    width: 120%; /* Aumenta a largura para cobrir melhor */
+    height: 800px; /* Altura da imagem para cobrir mais o site */
+    background-image: url('https://images.unsplash.com/photo-1551024709-24198a22a5c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
-    background-position: center bottom;
-    opacity: 0.3; /* Deixa a imagem um pouco transparente */
-    z-index: 1; /* Garante que a imagem esteja atrás do texto */
+    background-position: center;
+    opacity: 0.3;
+    z-index: 1;
     border-radius: 10px;
 }
 
-/* Animação de entrada (mantida para a imagem principal) */
+/* Animação de entrada (mantida) */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -132,7 +140,7 @@ body {
     color: var(--cinza-claro);
     background: linear-gradient(to top, var(--roxo-escuro), var(--azul-petroleo), rgba(0,0,0,0));
     margin-top: 3rem;
-    position: relative; /* Garante que fique acima da imagem de fundo, se necessário */
+    position: relative;
     z-index: 20;
 }
 
@@ -142,6 +150,6 @@ body {
         font-size: 3.5rem;
     }
     .background-image {
-        height: 400px;
+        height: 600px;
     }
 }
